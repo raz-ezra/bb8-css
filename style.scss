@@ -1,0 +1,1022 @@
+$color-bg: #f6fafd;
+
+$color-main: #ebf2fb;
+$color-secondary: #c5deed;
+$color-tertiary: #a8d0e0;
+$color-orange: #fdc23e;
+$color-highlight: #ffffff;
+$color-shadow: #c6dded;
+$color-shadow-dark: #a9d0e0;
+$color-border: #244256;
+$color-eye: #2b5367;
+$color-eye-2: #2a6a81;
+
+$color-star-1: #ff7761;
+$color-star-2: #449aa9;
+$color-star-3: #57b4c0;
+$color-star-4: #fdc23e;
+
+body {
+  color: $color-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+@keyframes run {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.1vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes headWiggle {
+  0% {
+    transform: scale(1.2) rotate(-32deg) translate(0, 0.5vw);
+  }
+  50% {
+    transform: scale(1.2) rotate(-33deg) translate(0, 0.4vw);
+  }
+  100% {
+    transform: scale(1.2) rotate(-32deg) translate(0, 0.5vw);
+  }
+}
+@keyframes stretch {
+  0% {
+    transform: scaleX(1);
+  }
+  70% {
+    transform: scaleX(1.3);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes stoneMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(9vw);
+  }
+  51% {
+    transform: translateX(-9vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  70% {
+    transform: translate(1px, 1px) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.container {
+  width: 50vw;
+  height: 30vw;
+}
+
+.body {
+  background-color: $color-main;
+  width: 15vw;
+  height: 15vw;
+  border: 0.5vw solid $color-border;
+  border-radius: 50%;
+  position: relative;
+  top: 6vw;
+  left: 17vw;
+  overflow: hidden;
+  z-index: 0;
+  animation: run infinite 1s linear;
+
+  .circle {
+    background-color: $color-orange;
+    border: 0.5vw solid $color-border;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+
+    .inner {
+      background-color: $color-secondary;
+      border: 0.5vw solid $color-border;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    &.circle {
+      &-1 {
+        top: 0.5vw;
+        left: -2vw;
+        width: 7vw;
+        height: 7vw;
+
+        .inner {
+          top: 1.6vw;
+          left: 1.4vw;
+          width: 2.5vw;
+          height: 2.5vw;
+        }
+      }
+
+      &-2 {
+        top: 0;
+        left: 6vw;
+        width: 9vw;
+        height: 9vw;
+
+        .inner {
+          top: 2vw;
+          left: 2vw;
+          width: 3vw;
+          height: 3vw;
+        }
+      }
+      &-3 {
+        top: -32vw;
+        left: 8vw;
+        width: 20vw;
+        height: 20vw;
+
+        .inner {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .line {
+    position: relative;
+    background-color: $color-border;
+
+    &.line {
+      &-1 {
+        width: 0.5vw;
+        height: 5vw;
+        top: -32.5vw;
+        left: 6.5vw;
+        transform: rotate(-48deg);
+        z-index: 0;
+      }
+
+      &-2 {
+        width: 0.5vw;
+        height: 5vw;
+        top: -43.5vw;
+        left: 7vw;
+        transform: rotate(-115deg);
+        z-index: 0;
+      }
+
+      &-3 {
+        width: 0.5vw;
+        height: 5vw;
+        top: -43.5vw;
+        left: 13vw;
+        transform: rotate(10deg);
+        z-index: 0;
+      }
+    }
+  }
+
+  .dot {
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    background-color: $color-border;
+    position: relative;
+    &.dot {
+      &-1 {
+        top: -48.5vw;
+        left: 8.5vw;
+      }
+
+      &-2 {
+        top: -44vw;
+        left: 3vw;
+      }
+    }
+  }
+}
+
+.shaddows {
+  background-color: transparent;
+  width: 15vw;
+  height: 15vw;
+  border: 0.5vw solid transparent;
+  border-radius: 50%;
+  position: relative;
+  top: -10vw;
+  left: 17vw;
+  overflow: hidden;
+  z-index: 0;
+
+  .shaddow {
+    position: absolute;
+    background-color: transparent;
+    border: 10vw solid rgba($color-border, 0.2);
+    animation: wiggle infinite 1s;
+
+    z-index: 100;
+    border-radius: 50%;
+
+    &.shaddow {
+      &-1 {
+        width: 20vw;
+        height: 20vw;
+        top: -16vw;
+        left: -16vw;
+      }
+
+      &-2 {
+        width: 28vw;
+        height: 28vw;
+        top: -9vw;
+        left: -12vw;
+        animation-delay: 0.5s;
+      }
+    }
+  }
+}
+
+.head {
+  //   background-color: rgba(red, 0.1);
+  width: 9vw;
+  height: 6vw;
+  position: relative;
+  left: 14.5vw;
+  top: -30vw;
+  overflow: hidden;
+  z-index: 3;
+  transform: scale(1.2) rotate(-32deg) translate(0, 0.5vw);
+  animation: headWiggle infinite 1s;
+
+  .main {
+    width: 9vw;
+    height: 4.5vw;
+    overflow: hidden;
+    z-index: 5;
+    .top {
+      width: 9vw;
+      height: 9vw;
+      background-color: $color-highlight;
+      border: 0.4vw solid $color-border;
+      box-sizing: border-box;
+      border-radius: 50%;
+      z-index: 5;
+      overflow: hidden;
+
+      .shaddow {
+        height: 9vw;
+        width: 9vw;
+        background-color: $color-main;
+        border-radius: 50%;
+        z-index: 4;
+        position: relative;
+        left: 0.8vw;
+
+        .deep {
+          width: 9vw;
+          height: 9vw;
+          border-radius: 50%;
+          position: relative;
+          left: -4.2vw;
+          top: -2.2vw;
+          border: 2vw solid rgba($color-border, 0.2);
+        }
+      }
+
+      .eye {
+        width: 2.8vw;
+        height: 2.8vw;
+        background-color: $color-eye;
+        border-radius: 50%;
+        border: 0.4vw solid $color-border;
+        box-sizing: border-box;
+        position: relative;
+        left: 2.7vw;
+        top: -8vw;
+        overflow: hidden;
+        z-index: 7;
+
+        &::before {
+          content: '';
+          display: block;
+          background-color: $color-eye-2;
+          width: 0.3vw;
+          height: 3vw;
+          position: relative;
+          left: 0.8vw;
+          top: -1vw;
+          transform: rotate(50deg);
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          background-color: $color-eye-2;
+          width: 0.5vw;
+          height: 3vw;
+          position: relative;
+          left: 0.8vw;
+          top: -3vw;
+          transform: rotate(50deg);
+        }
+      }
+
+      .dot {
+        width: 0.7vw;
+        height: 0.7vw;
+        border-radius: 50%;
+        background-color: $color-border;
+        position: relative;
+        top: -9vw;
+        left: 6.5vw;
+        z-index: 7;
+      }
+    }
+  }
+
+  .connect {
+    height: 2vw;
+    width: 3vw;
+    position: relative;
+    top: -10vw;
+    left: 2.5vw;
+    z-index: 6;
+    display: flex;
+    box-sizing: border-box;
+
+    .connect {
+      &-l {
+        width: 25%;
+        height: 100%;
+        border-radius: 0 0 100% 0;
+        border-bottom: 10vw solid $color-tertiary;
+      }
+      &-m {
+        background-color: $color-tertiary;
+        width: 50%;
+        height: 100%;
+        border-bottom: 1vw solid $color-tertiary;
+      }
+      &-r {
+        width: 25%;
+        height: 100%;
+        border-radius: 0 0 0 100%;
+        border-bottom: 10vw solid $color-tertiary;
+      }
+    }
+  }
+
+  .bottom {
+    background-color: $color-tertiary;
+    border-bottom: 0.4vw solid $color-border;
+    box-sizing: border-box;
+    height: 1.5vw;
+    position: relative;
+    z-index: -1;
+
+    &.bottom-middle {
+      width: 5.6vw;
+      top: -1.5vw;
+      left: 1.75vw;
+      z-index: 7;
+    }
+
+    &.bottom-left {
+      width: 3vw;
+      transform: rotate(40deg);
+      top: -0.6vw;
+      left: -0.3vw;
+      border-right: 0.1vw solid transparent;
+    }
+
+    &.bottom-right {
+      width: 3vw;
+      transform: rotate(-40deg);
+      top: -3.4vw;
+      left: 6.2vw;
+      border-left: 0.5vw solid transparent;
+    }
+  }
+}
+
+.lines {
+  width: 5vw;
+  height: 20vw;
+  position: relative;
+  left: 20vw;
+  top: -36.4vw;
+
+  .line {
+    &-1 {
+      display: flex;
+      animation: stretch infinite 1s;
+      transform-origin: 0 0;
+      .first {
+        height: 0.5vw;
+        width: 4vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+        margin-right: 0.5vw;
+      }
+
+      .second {
+        height: 0.5vw;
+        width: 1vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+      }
+    }
+
+    &-2 {
+      display: flex;
+      position: relative;
+      top: 2vw;
+      left: 3vw;
+      animation: stretch infinite 1s 0.2s;
+      transform-origin: 0 0;
+      .first {
+        height: 0.5vw;
+        width: 5vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+        margin-right: 0.5vw;
+      }
+
+      .second {
+        height: 0.5vw;
+        width: 1vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+      }
+    }
+
+    &-3 {
+      display: flex;
+      position: relative;
+      top: 2.7vw;
+      left: 3.5vw;
+      z-index: 10;
+      animation: stretch infinite 1s 0.4s;
+      transform-origin: 0 0;
+      .first {
+        height: 0.5vw;
+        width: 2.5vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+        margin-right: 0.5vw;
+      }
+    }
+    &-4 {
+      display: flex;
+      position: relative;
+      top: 11vw;
+      left: 11.7vw;
+      z-index: 10;
+      animation: stretch infinite 1s 0.6s;
+      transform-origin: 0 0;
+      .first {
+        height: 0.5vw;
+        width: 2vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+        margin-right: 0.5vw;
+      }
+    }
+    &-5 {
+      display: flex;
+      position: relative;
+      left: 11vw;
+      top: 11.5vw;
+      z-index: -1;
+      animation: stretch infinite 1s 0.8s;
+      transform-origin: 0 0;
+      .first {
+        height: 0.5vw;
+        width: 4vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+        margin-right: 0.5vw;
+      }
+
+      .second {
+        height: 0.5vw;
+        width: 1vw;
+        background-color: $color-border;
+        border-radius: 3vw;
+      }
+    }
+  }
+}
+
+.ground {
+  // background-color: rgba(red, 0.1);
+  width: 50vw;
+  height: 10vw;
+  position: relative;
+  top: -37vw;
+  left: 0;
+
+  .line {
+    height: 1vw;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+
+    &-1 {
+      .part {
+        align-items: flex-end;
+        overflow: hidden;
+        border-radius: 100% 100% 0 0;
+
+        &:not(:last-child) {
+          margin-right: 1vw;
+        }
+
+        &-1 {
+          width: 10vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+            background-color: $color-main;
+            box-sizing: border-box;
+            border: 0.5vw solid $color-border;
+            border-radius: 50%;
+            position: relative;
+            top: -1vw;
+            left: 4vw;
+            animation: stoneMove infinite linear 1s;
+          }
+        }
+        &-2 {
+          width: 3vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+          }
+        }
+        &-3 {
+          width: 24vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+          }
+        }
+        &-4 {
+          width: 7vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+            background-color: $color-main;
+            box-sizing: border-box;
+            border: 0.5vw solid $color-border;
+            border-radius: 50%;
+            position: relative;
+            top: -1vw;
+            left: 3vw;
+            animation: stoneMove infinite linear 1s;
+          }
+        }
+        &-5 {
+          width: 2vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+          }
+        }
+      }
+    }
+
+    &-2 {
+      position: relative;
+      top: 3vw;
+      left: 13vw;
+      .part {
+        align-items: flex-end;
+        overflow: hidden;
+        border-radius: 100% 100% 0 0;
+
+        &:not(:last-child) {
+          margin-right: 6vw;
+        }
+
+        &-1 {
+          width: 6vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+            background-color: $color-main;
+            box-sizing: border-box;
+            border: 0.5vw solid $color-border;
+            border-radius: 50%;
+            position: relative;
+            top: -1vw;
+            left: 4vw;
+            animation: stoneMove infinite linear 1.5s;
+          }
+        }
+        &-2 {
+          width: 10vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+            background-color: $color-main;
+            box-sizing: border-box;
+            border: 0.5vw solid $color-border;
+            border-radius: 50%;
+            position: relative;
+            top: -1vw;
+            left: 3vw;
+            animation: stoneMove infinite linear 1.5s;
+          }
+        }
+      }
+    }
+
+    &-3 {
+      position: relative;
+      top: 6vw;
+      left: 18vw;
+      .part {
+        align-items: flex-end;
+        overflow: hidden;
+        border-radius: 100% 100% 0 0;
+
+        &:not(:last-child) {
+          margin-right: 6vw;
+        }
+
+        &-1 {
+          width: 8vw;
+          .base {
+            margin-top: 0.5vw;
+            height: 50%;
+            width: 100%;
+            background-color: $color-border;
+            border-radius: 3vw;
+          }
+          .stone {
+            height: 2vw;
+            width: 2vw;
+            background-color: $color-main;
+            box-sizing: border-box;
+            border: 0.5vw solid $color-border;
+            border-radius: 50%;
+            position: relative;
+            top: -1vw;
+            left: 4vw;
+            animation: stoneMove infinite linear 2s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.stars {
+  width: 25vw;
+  height: 20vw;
+  position: relative;
+  top: -66vw;
+  left: 25vw;
+  .dust {
+    animation: sparkle infinite;
+    &::before {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 100%;
+      border-radius: 3vw;
+      position: relative;
+      left: 30%;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 100%;
+      border-radius: 3vw;
+      position: relative;
+      transform: rotate(90deg);
+      top: -98%;
+      left: 30%;
+    }
+    &.dust {
+      &-1 {
+        animation-duration: 1s;
+        animation-delay: 0;
+        width: 1vw;
+        height: 1vw;
+        position: relative;
+        top: 0.5vw;
+        left: 0.5vw;
+        &::before {
+          background-color: $color-star-1;
+        }
+        &::after {
+          background-color: $color-star-1;
+        }
+      }
+      &-2 {
+        animation-duration: 1.5s;
+        animation-delay: 0.5s;
+        width: 1vw;
+        height: 1vw;
+        position: relative;
+        top: 0.5vw;
+        left: 6vw;
+        &::before {
+          background-color: $color-star-3;
+        }
+        &::after {
+          background-color: $color-star-3;
+        }
+      }
+      &-3 {
+        animation-duration: 2s;
+        animation-delay: 0s;
+        width: 1.5vw;
+        height: 1.5vw;
+        position: relative;
+        top: 1vw;
+        left: 4.5vw;
+        &::before {
+          background-color: $color-star-2;
+        }
+        &::after {
+          background-color: $color-star-2;
+        }
+      }
+      &-4 {
+        animation-duration: 2s;
+        animation-delay: 0.5s;
+        width: 1.5vw;
+        height: 1.5vw;
+        position: relative;
+        top: -1vw;
+        left: 10vw;
+        &::before {
+          background-color: $color-star-4;
+        }
+        &::after {
+          background-color: $color-star-4;
+        }
+      }
+      &-5 {
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+        width: 1vw;
+        height: 1vw;
+        position: relative;
+        top: 2vw;
+        left: 8.5vw;
+        &::before {
+          background-color: $color-star-4;
+        }
+        &::after {
+          background-color: $color-star-4;
+        }
+      }
+      &-6 {
+        animation-duration: 0.5s;
+        animation-delay: 0s;
+        width: 0.5vw;
+        height: 0.5vw;
+        position: relative;
+        top: 0.5vw;
+        left: 14vw;
+        &::before {
+          background-color: $color-star-1;
+        }
+        &::after {
+          background-color: $color-star-1;
+        }
+      }
+      &-7 {
+        animation-duration: 0.7s;
+        animation-delay: 0.5s;
+        width: 0.5vw;
+        height: 0.5vw;
+        position: relative;
+        top: 0.5vw;
+        left: 17vw;
+        &::before {
+          background-color: $color-star-4;
+        }
+        &::after {
+          background-color: $color-star-4;
+        }
+      }
+      &-8 {
+        animation-duration: 2s;
+        animation-delay: 0.5s;
+        width: 2vw;
+        height: 2vw;
+        position: relative;
+        top: 0.5vw;
+        left: 11.5vw;
+        &::before {
+          background-color: $color-star-1;
+        }
+        &::after {
+          background-color: $color-star-1;
+        }
+      }
+      &-9 {
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+        width: 1vw;
+        height: 1vw;
+        position: relative;
+        top: 1.5vw;
+        left: 10vw;
+        &::before {
+          background-color: $color-star-3;
+        }
+        &::after {
+          background-color: $color-star-3;
+        }
+      }
+      &-10 {
+        animation-duration: 0.7s;
+        animation-delay: 0.8s;
+        width: 1vw;
+        height: 1vw;
+        position: relative;
+        top: -0.5vw;
+        left: 15vw;
+        &::before {
+          background-color: $color-star-4;
+        }
+        &::after {
+          background-color: $color-star-4;
+        }
+      }
+      &-11 {
+        animation-duration: 1.2s;
+        animation-delay: 0.5s;
+        width: 1vw;
+        height: 1vw;
+        position: relative;
+        top: -0.5vw;
+        left: 19vw;
+        &::before {
+          background-color: $color-star-1;
+        }
+        &::after {
+          background-color: $color-star-1;
+        }
+      }
+      &-12 {
+        animation-duration: 0.6s;
+        animation-delay: 0s;
+        width: 0.7vw;
+        height: 0.7vw;
+        position: relative;
+        top: 1vw;
+        left: 12.5vw;
+        &::before {
+          background-color: $color-star-4;
+        }
+        &::after {
+          background-color: $color-star-4;
+        }
+      }
+      &-13 {
+        animation-duration: 0.7s;
+        animation-delay: 0.8s;
+        width: 0.7vw;
+        height: 0.7vw;
+        position: relative;
+        top: 0.5vw;
+        left: 16vw;
+        &::before {
+          background-color: $color-star-1;
+        }
+        &::after {
+          background-color: $color-star-1;
+        }
+      }
+      &-14 {
+        animation-duration: 1s;
+        animation-delay: 0.7s;
+        width: 1vw;
+        height: 1vw;
+        position: relative;
+        top: 1.5vw;
+        left: 9vw;
+        &::before {
+          background-color: $color-star-2;
+        }
+        &::after {
+          background-color: $color-star-2;
+        }
+      }
+      &-15 {
+        animation-duration: 0.9s;
+        animation-delay: 0.2s;
+        width: 0.8vw;
+        height: 0.8vw;
+        position: relative;
+        top: 1.5vw;
+        left: 12vw;
+        &::before {
+          background-color: $color-star-1;
+        }
+        &::after {
+          background-color: $color-star-1;
+        }
+      }
+      &-16 {
+        animation-duration: 0.4s;
+        animation-delay: 0s;
+        width: 0.5vw;
+        height: 0.5vw;
+        position: relative;
+        top: 2.5vw;
+        left: 7vw;
+        &::before {
+          background-color: $color-star-1;
+        }
+        &::after {
+          background-color: $color-star-1;
+        }
+      }
+    }
+  }
+}
